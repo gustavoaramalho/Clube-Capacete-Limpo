@@ -334,6 +334,113 @@
       font-size: 13px;
     }
 
+    /* Vídeo de apresentação */
+    .video-higienizacao {
+      background: #eaf6ff;
+      padding: 55px 0;
+    }
+
+    .video-conteudo {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .video-conteudo h2 {
+      color: var(--azul-escuro);
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .video-conteudo p {
+      color: var(--cinza);
+      margin-bottom: 26px;
+    }
+
+    .video-player {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      background: #102b3d;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 10px 30px rgba(6, 75, 123, 0.15);
+    }
+
+    /* Por que higienizar */
+    .problemas {
+      background: #ffffff;
+    }
+
+    .lista-problemas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .problema {
+      padding: 24px;
+      border: 1px solid #e1edf5;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .problema h3 {
+      color: var(--azul-escuro);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .problema p {
+      color: var(--cinza);
+      font-size: 15px;
+    }
+
+    /* Apresentação do clube */
+    .clube-intro {
+      background: linear-gradient(135deg, #064b7b, #0879c9);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .clube-intro .titulo-secao h2,
+    .clube-intro .titulo-secao p {
+      color: #ffffff;
+    }
+
+    .clube-intro .titulo-secao p {
+      opacity: 0.9;
+    }
+
+    .mensagem-clube {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 17px;
+    }
+
+    .mensagem-clube strong {
+      color: #ffffff;
+    }
+
+    /* Ajustes para telas pequenas */
+    @media (max-width: 760px) {
+      .lista-problemas {
+        grid-template-columns: 1fr;
+      }
+
+      .video-higienizacao {
+        padding: 42px 0;
+      }
+
+      .video-player {
+        border-radius: 10px;
+      }
+
+      .mensagem-clube {
+        font-size: 16px;
+      }
+    }
     @media (max-width: 760px) {
       .menu {
         padding: 17px 0;
