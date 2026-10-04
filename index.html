@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clube Capacete Limpo: planos de higienização de capacetes para quem usa moto no dia a dia.">
+  <title>Clube Capacete Limpo | Seu capacete sempre cuidado</title>
+
+  <style>
+    :root {
+      --azul: #0879c9;
+      --azul-escuro: #064b7b;
+      --azul-claro: #eaf6ff;
+      --branco: #ffffff;
+      --texto: #233746;
+      --cinza: #637787;
+      --verde: #16a36a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: var(--branco);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--branco);
+      border-bottom: 1px solid #e5edf3;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .menu {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--azul-escuro);
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--azul);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--texto);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .botao {
+      display: inline-block;
+      background: var(--azul);
+      color: var(--branco);
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .botao:hover {
+      background: var(--azul-escuro);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #eaf6ff, #f8fcff);
+      padding: 85px 0;
+    }
+
+    .hero-conteudo {
+      max-width: 720px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: #d5edff;
+      color: var(--azul-escuro);
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 57px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: var(--azul-escuro);
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: var(--cinza);
+      font-size: 18px;
+      max-width: 610px;
+      margin-bottom: 28px;
+    }
+
+    .observacao {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--cinza);
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .titulo-secao {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 42px;
+    }
+
+    .titulo-secao h2 {
+      color: var(--azul-escuro);
+      font-size: clamp(27px, 4vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .titulo-secao p {
+      color: var(--cinza);
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .beneficio {
+      padding: 28px;
+      border: 1px solid #e1edf5;
+      border-radius: 16px;
+      background: var(--branco);
+    }
+
+    .icone {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .beneficio h3 {
+      color: var(--azul-escuro);
+      margin-bottom: 9px;
+      font-size: 19px;
+    }
+
+    .beneficio p {
+      color: var(--cinza);
+      font-size: 15px;
+    }
+
+    .planos {
+      background: var(--azul-claro);
+    }
+
+    .lista-planos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .plano {
+      background: var(--branco);
+      border: 1px solid #d8e8f4;
+      border-radius: 16px;
+      padding: 30px 25px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plano.destaque {
+      border: 2px solid var(--azul);
+      box-shadow: 0 8px 28px rgba(8, 121, 201, 0.12);
+    }
+
+    .plano h3 {
+      color: var(--azul-escuro);
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .plano .descricao {
+      color: var(--cinza);
+      font-size: 14px;
+      min-height: 46px;
+    }
+
+    .preco {
+      margin: 20px 0;
+      color: var(--azul-escuro);
+      font-size: 35px;
+      font-weight: 800;
+    }
+
+    .preco small {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--cinza);
+    }
+
+    .plano ul {
+      list-style: none;
+      margin-bottom: 25px;
+      flex: 1;
+    }
+
+    .plano li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .plano li::before {
+      content: "✓ ";
+      color: var(--verde);
+      font-weight: 800;
+    }
+
+    .plano .botao {
+      width: 100%;
+    }
+
+    .aviso-planos {
+      text-align: center;
+      color: var(--cinza);
+      font-size: 12px;
+      margin-top: 22px;
+    }
+
+    .como-funciona {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .passo {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .numero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--azul);
+      color: var(--branco);
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .passo h3 {
+      color: var(--azul-escuro);
+      margin-bottom: 8px;
+    }
+
+    .passo p {
+      color: var(--cinza);
+      font-size: 14px;
+    }
+
+    .chamada {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .chamada h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .chamada p {
+      margin-bottom: 24px;
+      color: #d8eaf8;
+    }
+
+    .chamada .botao {
+      background: var(--branco);
+      color: var(--azul-escuro);
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        padding: 17px 0;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 13px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .beneficios,
+      .lista-planos,
+      .como-funciona {
+        grid-template-columns: 1fr;
+      }
+
+      .plano.destaque {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container menu">
+      <a class="logo" href="#inicio">
+        CAPACETE LIMPO
+        <span>Clube de assinaturas</span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#planos">Planos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a class="botao" href="#planos">Conhecer planos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-conteudo">
+          <span class="etiqueta">Cuidado para quem vive sobre duas rodas</span>
+          <h1>Seu capacete merece cuidado. Você também.</h1>
+          <p>
+            Com o Clube Capacete Limpo, você organiza a higienização
+            do seu capacete com planos mensais pensados para a sua rotina.
+            Mais praticidade para quem usa moto todos os dias.
+          </p>
+          <a class="botao" href="#planos">Conheça os planos</a>
+          <span class="observacao">
+            Planos sujeitos à confirmação de disponibilidade e ativação.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Por que fazer parte do clube?</h2>
+          <p>
+            Uma maneira prática de incluir o cuidado com seu capacete
+            na rotina de quem utiliza motocicleta.
+          </p>
+        </div>
+
+        <div class="beneficios">
+          <article class="beneficio">
+            <div class="icone">🪖</div>
+            <h3>Cuidado periódico</h3>
+            <p>
+              Tenha ciclos de higienização disponíveis de acordo com
+              o plano contratado.
+            </p>
+          </article>
+
+          <article class="beneficio">
+            <div class="icone">📱</div>
+            <h3>Mais praticidade</h3>
+            <p>
+              Acesse sua área de cliente para consultar as informações
+              do plano e seu código de utilização.
+            </p>
+          </article>
+
+          <article class="beneficio">
+            <div class="icone">💙</div>
+            <h3>Feito para sua rotina</h3>
+            <p>
+              Escolha a opção que melhor combina com a frequência
+              com que você utiliza sua motocicleta.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="planos" id="planos">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Escolha seu plano</h2>
+          <p>
+            Opções iniciais para diferentes frequências de uso.
+          </p>
+        </div>
+
+        <div class="lista-planos">
+          <article class="plano">
+            <h3>Essencial</h3>
+            <p class="descricao">Para quem utiliza a moto algumas vezes por semana.</p>
+            <div class="preco">R$ 29,90 <small>/ mês</small></div>
+            <ul>
+              <li>2 higienizações por mês</li>
+              <li>Código de utilização individual</li>
+              <li>Consulta do plano pela internet</li>
+            </ul>
+            <a class="botao" href="#contato">Tenho interesse</a>
+          </article>
+
+          <article class="plano destaque">
+            <h3>Frequente</h3>
+            <p class="descricao">Para quem usa a moto regularmente no dia a dia.</p>
+            <div class="preco">R$ 49,90 <small>/ mês</small></div>
+            <ul>
+              <li>4 higienizações por mês</li>
+              <li>Código de utilização individual</li>
+              <li>Consulta do plano pela internet</li>
+            </ul>
+            <a class="botao" href="#contato">Tenho interesse</a>
+          </article>
+
+          <article class="plano">
+            <h3>Intensivo</h3>
+            <p class="descricao">Para quem passa muitas horas sobre duas rodas.</p>
+            <div class="preco">R$ 69,90 <small>/ mês</small></div>
+            <ul>
+              <li>6 higienizações por mês</li>
+              <li>Código de utilização individual</li>
+              <li>Consulta do plano pela internet</li>
+            </ul>
+            <a class="botao" href="#contato">Tenho interesse</a>
+          </article>
+        </div>
+
+        <p class="aviso-planos">
+          Valores e quantidades são propostas iniciais para validação
+          comercial. A contratação ainda não está habilitada.
+        </p>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Simples assim</h2>
+          <p>Queremos tornar a experiência clara desde a contratação até a utilização.</p>
+        </div>
+
+        <div class="como-funciona">
+          <article class="passo">
+            <div class="numero">1</div>
+            <h3>Escolha seu plano</h3>
+            <p>Encontre a opção que combina com sua frequência de uso.</p>
+          </article>
+
+          <article class="passo">
+            <div class="numero">2</div>
+            <h3>Ative sua assinatura</h3>
+            <p>Após a confirmação da contratação, você receberá as informações de acesso.</p>
+          </article>
+
+          <article class="passo">
+            <div class="numero">3</div>
+            <h3>Utilize seus ciclos</h3>
+            <p>Consulte seu código e as condições de uso do seu plano.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chamada" id="contato">
+      <div class="container">
+        <h2>Faça parte do Clube Capacete Limpo</h2>
+        <p>
+          Estamos preparando uma experiência simples para cuidar
+          melhor do seu capacete.
+        </p>
+        <a class="botao" href="#planos">Ver os planos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Clube Capacete Limpo</strong></p>
+      <p>© 2026 — Todos os direitos reservados.</p>
+      <p>Planos em fase de configuração. Contratação ainda indisponível.</p>
+    </div>
+  </footer>
+</body>
+</html>
